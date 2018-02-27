@@ -4,6 +4,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.channels.FileChannel;
 
 /**
  * Created by jjesusmonroy on 26/02/18.
@@ -49,10 +55,4 @@ public class BDHandler extends SQLiteOpenHelper {
         if(c!=null){c.close();}
         return elementos;
     }
-
-    public void main(String [] args){
-        consultar("SELECT * FROM alumnos");
-    }
-
-
 }
