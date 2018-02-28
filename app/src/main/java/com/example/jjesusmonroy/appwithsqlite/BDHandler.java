@@ -28,7 +28,6 @@ public class BDHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("INSERT INTO alumnos VALUES (1,'Jesus Monroy','14400968')");
         sqLiteDatabase.execSQL("INSERT INTO alumnos VALUES (2,'Betsy Sanchez','14401007')");
         sqLiteDatabase.execSQL("INSERT INTO alumnos VALUES (3,'Bryan Gutierrez','14400945')");
-
     }
 
     @Override
@@ -47,6 +46,7 @@ public class BDHandler extends SQLiteOpenHelper {
             elementos[i][2]=c.getString(2);
         }
         if(c!=null){c.close();}
+        System.out.println(elementos[1][1]+"\n"+elementos[2][1]+"\n"+elementos[0][1]+"\n");
         return elementos;
     }
 }

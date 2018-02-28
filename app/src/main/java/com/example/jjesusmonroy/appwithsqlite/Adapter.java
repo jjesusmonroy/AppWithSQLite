@@ -7,17 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.List;
 
 /**
  * Created by jjesusmonroy on 27/02/18.
  */
 
 public class Adapter extends RecyclerView.Adapter<Adapter.RecyclerViewHolder> {
-    private List<DataProvider> list;
+    private String [][] data;
 
-    public Adapter(List<DataProvider> list) {
-        this.list = list;
+    public Adapter(String[][] data) {
+        this.data = data;
     }
 
     @Override
@@ -28,15 +27,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.RecyclerViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        DataProvider provider = list.get(position);
-
-        holder.nombre.setText(provider.getNombre());
-        holder.nocontrol.setText(provider.getNocontrol());
+        holder.nombre.setText(data[position][1]);
+        holder.nocontrol.setText(data[position][2]);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.length;
     }
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
