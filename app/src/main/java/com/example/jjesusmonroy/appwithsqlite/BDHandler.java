@@ -28,6 +28,7 @@ public class BDHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("INSERT INTO alumnos VALUES (1,'Jesus Monroy','14400968')");
         sqLiteDatabase.execSQL("INSERT INTO alumnos VALUES (2,'Betsy Sanchez','14401007')");
         sqLiteDatabase.execSQL("INSERT INTO alumnos VALUES (3,'Bryan Gutierrez','14400945')");
+        sqLiteDatabase.execSQL("INSERT INTO alumnos VALUES (4,'Edgar Ernesto','14400979')");
     }
 
     @Override
@@ -38,7 +39,7 @@ public class BDHandler extends SQLiteOpenHelper {
 
     public String[][] consultar(String sql){
         Cursor c = db.rawQuery(sql,null);
-        String [][] elementos = new String [c.getColumnCount()][c.getCount()];
+        String [][] elementos = new String [c.getCount()][c.getColumnCount()];
         if (c.moveToFirst()){
             int contador=0;
             do{
