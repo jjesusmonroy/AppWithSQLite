@@ -39,14 +39,16 @@ public class BDHandler extends SQLiteOpenHelper {
     public String[][] consultar(String sql){
         Cursor c = db.rawQuery(sql,null);
         String [][] elementos = new String [c.getColumnCount()][c.getCount()];
-        c.moveToFirst();
-        for(int i=0; i<c.getCount();i++){
-            elementos[i][0]=c.getString(0);
-            elementos[i][1]=c.getString(1);
-            elementos[i][2]=c.getString(2);
+        if (c.moveToFirst()){
+            int contador=0;
+            do{
+                elementos[contador][0]=c.getString(c.getColumnIndex("idAlumno"));
+                elementos[contador][1]=c.getString(c.getColumnIndex("nombre"));
+                elementos[contador][2]=c.getString(c.getColumnIndex("nocontrol"));
+                contador++;
+            }while(c.moveToNext());
         }
         if(c!=null){c.close();}
-        System.out.println(elementos[1][1]+"\n"+elementos[2][1]+"\n"+elementos[0][1]+"\n");
         return elementos;
     }
 }
